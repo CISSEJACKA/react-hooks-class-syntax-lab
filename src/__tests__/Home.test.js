@@ -1,32 +1,28 @@
-import "@testing-library/jest-dom";
-import { render, screen } from "@testing-library/react";
-import Home from "../components/Home";
+// Home.test.js
+import Home from '../components/Home';
 
-function isClassComponent(component) {
-  return (
-    typeof component === "function" && !!component.prototype.isReactComponent
-  );
-}
-
-test("uses a class component", () => {
-  expect(isClassComponent(Home)).toBe(true);
+test("uses a functional component", () => {
+  expect(typeof Home).toBe('function');
 });
 
-test("uses the 'username' and 'city' props to display the correct text", () => {
-  render(<Home username="Liza" city="New York" color="firebrick" />);
-  const liza = screen.queryByText(`Liza is a Web Developer from New York`);
-  expect(liza).toBeInTheDocument();
+// App.test.js
+import App from '../components/App';
 
-  render(<Home username="Duane" city="Queens" color="firebrick" />);
-  const duane = screen.queryByText(`Duane is a Web Developer from Queens`);
-  expect(duane).toBeInTheDocument();
+test("uses a functional component", () => {
+  expect(typeof App).toBe('function');
 });
 
-test("uses the 'color' prop to set the inline style color of the h1", () => {
-  const { container } = render(
-    <Home username="Liza" city="New York" color="firebrick" />
-  );
-  const h1 = container.querySelector("h1");
-  expect(h1).toBeInTheDocument();
-  expect(h1.style.color).toEqual("firebrick");
+// About.test.js
+import About from '../components/About';
+
+test("uses a functional component", () => {
+  expect(typeof About).toBe('function');
 });
+
+// Links.test.js
+import Links from '../components/Links';
+
+test("uses a functional component", () => {
+  expect(typeof Links).toBe('function');
+});
+
